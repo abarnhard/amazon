@@ -6,7 +6,7 @@
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand(href='/') Template
+      a.navbar-brand(href='/') Amazon
 
     .collapse.navbar-collapse#bs-navbar-collapse
       ul.nav.navbar-nav.navbar-right
@@ -17,6 +17,7 @@
                 input(type='hidden', name='_method', value='delete')
                 button.btn.btn-danger= user.email
         else
-          li: a(href='/register') Register
-          li: a(href='/login') Login
+          //- li: a(href='/register'): i.fa.fa-user.fa-2x &nbsp; Register
+          li: a.fa.fa-user.fa-2x(href='/register') &nbsp; Register
+          li: a.fa.fa-rocket.fa-2x(href='/login') &nbsp; Login
 
