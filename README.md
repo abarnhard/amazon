@@ -1,14 +1,12 @@
-## name of project
+## Amazon
 ### Code Badges
-build status icon
-coverage status icon
 
 ### Screenshots
 ![Image1](https://raw.githubusercontent.com/nss-cohort-2014-06-07/express-template/master/docs/screenshots/one.jpg)
 ![Image2](https://raw.githubusercontent.com/nss-cohort-2014-06-07/express-template/master/docs/screenshots/two.jpg)
 
 ### Description
-write a description about your project
+Just call me Jeff Bezos
 
 ### Models
 ```
@@ -40,7 +38,7 @@ $ npm test
 ```
 
 ### Contributors
-- [Chyld Medford](https://github.com/chyld)
+- [Adam Barnhard](https://github.com/abarnhard)
 
 ### License
 [MIT](LICENSE)
