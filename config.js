@@ -26,4 +26,10 @@ config.facebook = {
   callbackUrl: 'http://adam-vm.com:3000/auth/facebook/callback'
 };
 
+config.meetup = {
+  clientId: 'o4496o30qpr097pufo21mq8tga',
+  clientSecret: process.env.MEETUP_SECRET,
+  callbackUrl: 'http://adam-vm.com:3000/auth/meetup/callback'
+};
+
 module.exports = config;

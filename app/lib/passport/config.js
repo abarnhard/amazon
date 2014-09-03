@@ -5,6 +5,7 @@ var local       = require('./local'),
     github      = require('./github'),
     google      = require('./google'),
     facebook    = require('./facebook'),
+    meetup      = require('./meetup'),
     serialize   = require('./serialize'),
     deserialize = require('./deserialize');
 
@@ -14,6 +15,7 @@ module.exports = function(passport, app){
   passport.use(github);
   passport.use(google);
   passport.use(facebook);
+  passport.use(meetup);
   passport.serializeUser(serialize);
   passport.deserializeUser(deserialize);
 

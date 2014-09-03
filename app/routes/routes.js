@@ -32,15 +32,17 @@ module.exports = function(app, express){
   app.post('/register', users.create);
 
   app.get('/login',                 users.login);
-  app.post('/login',                passport.authenticate('local',   {successRedirect:'/profile', failureRedirect:'/login', failureFlash:'Login failed'}));
+  app.post('/login',                passport.authenticate('local',     {successRedirect:'/profile', failureRedirect:'/login', failureFlash:'Login failed'}));
   app.get('/auth/twitter',          passport.authenticate('twitter'));
-  app.get('/auth/twitter/callback', passport.authenticate('twitter', {successRedirect:'/profile', failureRedirect:'/', failureFlash:'Twitter Login failed'}));
+  app.get('/auth/twitter/callback', passport.authenticate('twitter',   {successRedirect:'/profile', failureRedirect:'/', failureFlash:'Twitter Login failed'}));
   app.get('/auth/github',          passport.authenticate('github'));
-  app.get('/auth/github/callback', passport.authenticate('github',   {successRedirect:'/profile', failureRedirect:'/', failureFlash:'GitHub Login failed'}));
-  app.get('/auth/google',           passport.authenticate('google',  {scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/plus.profile.emails.read']}));
-  app.get('/auth/google/callback', passport.authenticate('google',   {successRedirect:'/profile', failureRedirect:'/', failureFlash:'GitHub Login failed'}));
+  app.get('/auth/github/callback', passport.authenticate('github',     {successRedirect:'/profile', failureRedirect:'/', failureFlash:'GitHub Login failed'}));
+  app.get('/auth/google',           passport.authenticate('google',    {scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/plus.profile.emails.read']}));
+  app.get('/auth/google/callback', passport.authenticate('google',     {successRedirect:'/profile', failureRedirect:'/', failureFlash:'GitHub Login failed'}));
   app.get('/auth/facebook',          passport.authenticate('facebook'));
-  app.get('/auth/facebook/callback', passport.authenticate('facebook',   {successRedirect:'/profile', failureRedirect:'/', failureFlash:'GitHub Login failed'}));
+  app.get('/auth/facebook/callback', passport.authenticate('facebook', {successRedirect:'/profile', failureRedirect:'/', failureFlash:'GitHub Login failed'}));
+  app.get('/auth/meetup',          passport.authenticate('meetup'));
+  app.get('/auth/meetup/callback', passport.authenticate('meetup',     {successRedirect:'/profile', failureRedirect:'/', failureFlash:'GitHub Login failed'}));
 
   app.use(security.bounce);
   app.delete('/logout', users.logout);

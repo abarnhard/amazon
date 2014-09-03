@@ -72,6 +72,15 @@ User.facebookAuthenticate = function(accessToken, refreshToken, profile, cb){
   });
 };
 
+User.meetupAuthenticate = function(token, tokenSecret, profile, cb){
+  // console.log(profile);
+  User.collection.findOne({meetupId:profile.id}, function(err, user){
+    if(user){return cb(err, user);}
+    user = {meetupId:profile.id, displayName:profile.displayName, type:'meetup'};
+    User.collection.save(user, cb);
+  });
+};
+
 User.update = function(user, data, cb){
   // console.log('***Post Body:', data);
   Object.keys(data).forEach(function(key){
