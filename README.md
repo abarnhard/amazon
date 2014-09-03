@@ -1,12 +1,14 @@
 ## Amazon
 ### Code Badges
+[![Build Status](https://travis-ci.org/ABarnhard/amazon.svg)](https://travis-ci.org/ABarnhard/amazon)
+[![Coverage Status](https://coveralls.io/repos/ABarnhard/amazon/badge.png)](https://coveralls.io/r/ABarnhard/amazon)
+
 
 ### Screenshots
-![Image1](https://raw.githubusercontent.com/nss-cohort-2014-06-07/express-template/master/docs/screenshots/one.jpg)
-![Image2](https://raw.githubusercontent.com/nss-cohort-2014-06-07/express-template/master/docs/screenshots/two.jpg)
+Forthcoming...
 
 ### Description
-Just call me Jeff Bezos
+Just call me Jeff Bezos. This app demonstrates using passport to login in using various oauth services provided by FB, GMail, Twitter, etc.
 
 ### Models
 ```
@@ -28,7 +30,7 @@ Collection 2
 
 ### Features
 - [x] Feature 1
-- [ ] Feature 2
+- [x] Feature 2
 - [x] Feature 3
 
 ### Running Tests
