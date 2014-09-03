@@ -37,5 +37,5 @@ exports.edit = function(req, res){
 exports.update = function(req, res){
   User.update(req.user, req.body, function(){
     res.redirect('/profile');
-  })
+  });
 };
