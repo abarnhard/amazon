@@ -11,13 +11,13 @@
     .collapse.navbar-collapse#bs-navbar-collapse
       ul.nav.navbar-nav.navbar-right
         if user
+          li: a.fa.fa-space-shuttle(href='/profile') &nbsp; Profile
           li
             form.navbar-form(method='post', action='/logout')
               .form-group
                 input(type='hidden', name='_method', value='delete')
                 button.btn.btn-danger= user.email
         else
-          //- li: a(href='/register'): i.fa.fa-user.fa-2x &nbsp; Register
           li: a.fa.fa-user.fa-2x(href='/register') &nbsp; Register
           li: a.fa.fa-rocket.fa-2x(href='/login') &nbsp; Login
 
