@@ -16,6 +16,7 @@ exports.bounce = function(req, res, next){
   if(res.locals.user){
     next();
   }else{
+    req.flash('error', 'Please login to view page');
     res.redirect('/login');
   }
 };

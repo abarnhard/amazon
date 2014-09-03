@@ -24,6 +24,7 @@ User.register = function(o, cb){
   User.collection.findOne({email:o.email}, function(err, user){
     if(user){return cb();}
     o.password = bcrypt.hashSync(o.password, 10);
+    o.type = 'local';
     User.collection.save(o, cb);
   });
 };
@@ -34,6 +35,40 @@ User.localAuthenticate = function(email, password, cb){
     var isOk = bcrypt.compareSync(password, user.password);
     if(!isOk){return cb();}
     cb(null, user);
+  });
+};
+
+User.twitterAuthenticate = function(token, secret, twitter, cb){
+  User.collection.findOne({twitterId:twitter.id}, function(err, user){
+    if(user){return cb(null, user);}
+    user = {twitterId:twitter.id, username:twitter.username, displayName:twitter.dsiplayName, type:'twitter'};
+    User.collection.save(user, cb);
+  });
+};
+
+User.githubAuthenticate = function(accessToken, refreshToken, profile, cb){
+  User.collection.findOne({githubId:profile.id}, function(err, user){
+    if(user){return cb(err, user);}
+    user = {githubId:profile.id, username:profile.username, displayName:profile.displayName, type:'github'};
+    User.collection.save(user, cb);
+  });
+};
+
+User.googleAuthenticate = function(accessToken, refreshToken, profile, cb){
+  // console.log(accessToken, refreshToken, profile, cb);
+  User.collection.findOne({googleId:profile.id}, function(err, user){
+    if(user){return cb(err, user);}
+    user = {googleId:profile.id, displayName:profile.displayName, type:'google'};
+    User.collection.save(user, cb);
+  });
+};
+
+User.facebookAuthenticate = function(accessToken, refreshToken, profile, cb){
+  // console.log(profile);
+  User.collection.findOne({facebookId:profile.id}, function(err, user){
+    if(user){return cb(err, user);}
+    user = {facebookId:profile.id, displayName:profile.displayName, type:'facebook'};
+    User.collection.save(user, cb);
   });
 };
 

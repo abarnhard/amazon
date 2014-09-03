@@ -16,8 +16,12 @@
             form.navbar-form(method='post', action='/logout')
               .form-group
                 input(type='hidden', name='_method', value='delete')
-                button.btn.btn-danger= user.email
+                button.btn.btn-danger= user.email || user.username || user.displayName
         else
-          li: a.fa.fa-user.fa-2x(href='/register') &nbsp; Register
-          li: a.fa.fa-rocket.fa-2x(href='/login') &nbsp; Login
+          li: a.fa.fa-user(href='/register') &nbsp; Register
+          li: a.fa.fa-rocket(href='/login') &nbsp; Login
+          li: a.fa.fa-twitter(href='/auth/twitter') &nbsp; Twitter
+          li: a.fa.fa-github(href='/auth/github') &nbsp; GitHub
+          li: a.fa.fa-google(href='/auth/google') &nbsp; Google
+          li: a.fa.fa-facebook(href='/auth/facebook') &nbsp; Facebook
 

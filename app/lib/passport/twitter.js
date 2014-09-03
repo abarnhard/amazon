@@ -1,7 +1,14 @@
 'use strict';
 
-var LocalStrategy = require('passport-local').Strategy,
-    User          = require('../../models/user'),
-    local         = new LocalStrategy({usernameField:'email', passwordField:'password'}, User.localAuthenticate);
+var TwitterStrategy   = require('passport-twitter').Strategy,
+    User              = require('../../models/user'),
+    config            = require('../../../config'),
+    twitter           = new TwitterStrategy(
+                        {
+                          consumerKey:    config.twitter.apiKey,
+                          consumerSecret: config.twitter.apiSecret,
+                          callbackUrl:    config.twitter.callbackUrl
+                        },
+                        User.twitterAuthenticate);
 
-module.exports = local;
+module.exports = twitter;
