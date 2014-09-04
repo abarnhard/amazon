@@ -6,6 +6,8 @@ block content
       form(role='form', method='post', action='/cart')
         input(type='hidden', name='_method', value='delete')
         button.btn.btn-danger.btn-sm(type='submit') Clear Cart
+      form(role='form', action='/charge', method='post')
+        script.stripe-button(src='https://checkout.stripe.com/checkout.js', data-key='#{key}', data-image='/img/marketplace.png', data-name='Amazon Global',  data-amount='#{Math.round(total * 100)}')
       table.table.table-hover.table-condensed
         thead
           tr
@@ -15,17 +17,13 @@ block content
             th Qty
             th Total
         tbody
-          - var total = 0
           each product in cart
-            - total += product.price * product.count
             tr
               td: .pimg(style='background-image:url(#{product.photo})')
               td= product.name
               td $#{product.price.toFixed(2)}
               td= product.count
               td $#{(product.price * product.count).toFixed(2)}
-          - var tax = total * 0.075
-          - total += tax
           tr
             td
             td
