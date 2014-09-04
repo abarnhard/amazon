@@ -13,6 +13,7 @@ exports.login = function(req, res){
 exports.logout = function(req, res){
   req.logout();
   req.flash('notice', 'See you later');
+  delete req.session.cart;
   res.redirect('/');
 };
 

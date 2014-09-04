@@ -2,6 +2,11 @@
 
 var config = {};
 
+config.stripe = {
+  apiKey   : 'pk_test_CZ4sohrWtHMHij8OHhw4au5s',
+  apiSecret: process.env.STRIPE_SECRET
+};
+
 config.twitter = {
   apiKey     : 'e8wGxQHF3HdmXSMMEwKlNslCZ',
   apiSecret  : process.env.TWITTER_SECRET,

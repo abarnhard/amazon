@@ -1,0 +1,42 @@
+extends ../shared/template
+block content
+  h2 Buy It NOW!!!
+  .panel.panel-default
+    .panel-body
+      form(role='form', method='post', action='/cart')
+        input(type='hidden', name='_method', value='delete')
+        button.btn.btn-danger.btn-sm(type='submit') Clear Cart
+      table.table.table-hover.table-condensed
+        thead
+          tr
+            th Photo
+            th Name
+            th Price
+            th Qty
+            th Total
+        tbody
+          - var total = 0
+          each product in cart
+            - total += product.price * product.count
+            tr
+              td: .pimg(style='background-image:url(#{product.photo})')
+              td= product.name
+              td $#{product.price.toFixed(2)}
+              td= product.count
+              td $#{(product.price * product.count).toFixed(2)}
+          - var tax = total * 0.075
+          - total += tax
+          tr
+            td
+            td
+            td
+            td Tax
+            td $#{tax.toFixed(2)}
+          tr
+            td
+            td
+            td
+            td Total
+            td $#{total.toFixed(2)}
+
+block scripts

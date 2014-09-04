@@ -1,0 +1,31 @@
+{
+  "_id":{"$oid":"c00000000000000000000001"},
+  "name":"Shoe",
+  "photo":"http://upload.wikimedia.org/wikipedia/commons/e/ec/Hush_Puppy_shoe.jpg",
+  "price":50.45
+}
+{
+  "_id":{"$oid":"c00000000000000000000002"},
+  "name":"iPad",
+  "photo":"http://dp7d5ocfu7m9s.cloudfront.net/images/detailed/27/MD543Ba.jpg?v=e026d013a1d0ff3ea9ba32aac9c789db007bc890",
+  "price":800.00
+}
+{
+  "_id":{"$oid":"c00000000000000000000003"},
+  "name":"F/A-18 Hornet",
+  "photo":"http://monovicioso.files.wordpress.com/2011/03/f18.jpg",
+  "price":60900000.00
+}
+{
+  "_id":{"$oid":"c00000000000000000000004"},
+  "name":"Don Knotts",
+  "photo":"http://www.latimes.com/includes/projects/hollywood/portraits/don_knotts.jpg",
+  "price":12834.45
+}
+{
+  "_id":{"$oid":"c00000000000000000000005"},
+  "name":"TV",
+  "photo":"http://www.blackfriday2013smarttvdeals.com/wp-content/uploads/2013/10/Smart-TV.png",
+  "price":1000.67
+}
+

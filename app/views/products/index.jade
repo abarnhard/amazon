@@ -1,0 +1,23 @@
+extends ../shared/template
+block content
+  h2 Shop For Stuff
+  .panel.panel-default
+    .panel-body
+      table.table.table-hover.table-condensed
+        thead
+          tr
+            th Product
+            th Photo
+            th Price
+        tbody
+          each product in products
+            tr
+              td
+                form(role='form', method='post', action='/cart')
+                  input(type='hidden', name='productId', value=product._id)
+                  button.btn.btn-primary(type='submit')= product.name
+              td
+                .pimg(style='background-image:url(#{product.photo})')
+              td $#{product.price.toFixed(2)}
+
+block scripts

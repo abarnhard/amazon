@@ -12,6 +12,8 @@ var morgan         = require('morgan'),
     flash          = require('connect-flash'),
     passportConfig = require('../lib/passport/config'),
     home           = require('../controllers/home'),
+    products       = require('../controllers/products'),
+    cart           = require('../controllers/cart'),
     users          = require('../controllers/users');
 
 module.exports = function(app, express){
@@ -49,6 +51,10 @@ module.exports = function(app, express){
   app.get('/profile', users.profile);
   app.get('/profile/edit', users.edit);
   app.put('/profile', users.update);
+  app.get('/products', products.index);
+  app.post('/cart', cart.add);
+  app.get('/cart', cart.index);
+  app.delete('/cart', cart.destroy);
 
   console.log('Express: Routes Loaded');
 };
